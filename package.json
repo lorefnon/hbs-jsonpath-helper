@@ -1,0 +1,53 @@
+{
+  "name": "hbs-jsonpath-helper",
+  "description": "A simple handlebars helper that enables you to use jsonpath (to access and traverse nested data) within your templates",
+  "keywords": [
+    "handlebars",
+    "handlebars-helpers"
+  ],
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/hbs-jsonpath-helper.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "format": "prettier --write ./src/*.ts ./test/*.ts",
+    "snippets:collect": "snippet-collector --files ./test/*.ts --files ./src/*.ts --output ./generated/snippets.json",
+    "docs:generate": "node ./scripts/generate-docs.js",
+    "prePublishOnly": "yarn run build && yarn run snippets:collect && yarn run docs:generate"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@types/handlebars": "^4.1.0",
+    "@types/jest": "^24.0.16",
+    "dedent": "^0.7.0",
+    "handlebars": "^4.1.2",
+    "hbs-dedent-helper": "^0.1.0",
+    "husky": "^3.0.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "snippet-collector": "^1.0.5",
+    "tsdx": "^0.7.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "jsonpath-plus": "^0.20.1"
+  }
+}

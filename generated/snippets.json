@@ -1,0 +1,54 @@
+{
+    "jp-get-example": {
+        "name": "jp-get-example",
+        "content": "    `\n    <h1>Books</h1>\n    <ul>\n      {{#each (jp-get \"$.store.book[*]\")}}\n          <li>\n            <div class=\"title\">{{title}}</div>\n            <div class=\"author\">{{author}}</div>\n          </li>\n      {{/each}}\n    </ul>\n    `\n"
+    },
+    "jp-get-example-result": {
+        "name": "jp-get-example-result",
+        "content": "    `\n    \"\n        <h1>Books</h1>\n        <ul>\n              <li>\n                <div class=\\\\\"title\\\\\">Sayings of the Century</div>\n                <div class=\\\\\"author\\\\\">Nigel Rees</div>\n              </li>\n              <li>\n                <div class=\\\\\"title\\\\\">Sword of Honour</div>\n                <div class=\\\\\"author\\\\\">Evelyn Waugh</div>\n              </li>\n              <li>\n                <div class=\\\\\"title\\\\\">Moby Dick</div>\n                <div class=\\\\\"author\\\\\">Herman Melville</div>\n              </li>\n              <li>\n                <div class=\\\\\"title\\\\\">The Lord of the Rings</div>\n                <div class=\\\\\"author\\\\\">J. R. R. Tolkien</div>\n              </li>\n        </ul>\n        \"\n  `\n"
+    },
+    "jp-get-in-example": {
+        "name": "jp-get-in-example",
+        "content": "    `\n        <h1>Books</h1>\n        <ul>\n          {{#each (jp-get-in \"book[*]\" store)}}\n              <li>\n                <div class=\"title\">{{title}}</div>\n                <div class=\"author\">{{author}}</div>\n              </li>\n          {{/each}}\n        </ul>\n    `\n"
+    },
+    "jp-get-in-example-result": {
+        "name": "jp-get-in-example-result",
+        "content": "    `\n    \"\n            <h1>Books</h1>\n            <ul>\n                  <li>\n                    <div class=\\\\\"title\\\\\">Sayings of the Century</div>\n                    <div class=\\\\\"author\\\\\">Nigel Rees</div>\n                  </li>\n                  <li>\n                    <div class=\\\\\"title\\\\\">Sword of Honour</div>\n                    <div class=\\\\\"author\\\\\">Evelyn Waugh</div>\n                  </li>\n                  <li>\n                    <div class=\\\\\"title\\\\\">Moby Dick</div>\n                    <div class=\\\\\"author\\\\\">Herman Melville</div>\n                  </li>\n                  <li>\n                    <div class=\\\\\"title\\\\\">The Lord of the Rings</div>\n                    <div class=\\\\\"author\\\\\">J. R. R. Tolkien</div>\n                  </li>\n            </ul>\n        \"\n  `\n"
+    },
+    "jp-descend-example": {
+        "name": "jp-descend-example",
+        "content": "\n    `\n        <h1>Authors</h1>\n        <ul>\n          {{#jp-descend \"$.store.book[*].author\"}}\n              {{#each .}}\n                  <li>{{.}}</li>\n              {{/each}}\n          {{/jp-descend}}\n        </ul>\n    `\n"
+    },
+    "jp-descend-example-result": {
+        "name": "jp-descend-example-result",
+        "content": "\n    `\n    \"\n            <h1>Authors</h1>\n            <ul>\n                      <li>Nigel Rees</li>\n                      <li>Evelyn Waugh</li>\n                      <li>Herman Melville</li>\n                      <li>J. R. R. Tolkien</li>\n            </ul>\n        \"\n  `\n"
+    },
+    "jp-descend-in-example": {
+        "name": "jp-descend-in-example",
+        "content": "\n    `\n        <h1>Authors</h1>\n        <ul>\n          {{#jp-descend-in \"book[*].author\" store}}\n              {{#each .}}\n                  <li>{{.}}</li>\n              {{/each}}\n          {{/jp-descend-in}}\n        </ul>\n    `\n"
+    },
+    "jp-descend-in-example-result": {
+        "name": "jp-descend-in-example-result",
+        "content": "\n    `\n    \"\n            <h1>Authors</h1>\n            <ul>\n                      <li>Nigel Rees</li>\n                      <li>Evelyn Waugh</li>\n                      <li>Herman Melville</li>\n                      <li>J. R. R. Tolkien</li>\n            </ul>\n        \"\n  `\n"
+    },
+    "example-data": {
+        "name": "example-data",
+        "content": "const data = {\n  store: {\n    book: [\n      {\n        category: 'reference',\n        author: 'Nigel Rees',\n        title: 'Sayings of the Century',\n        price: 8.95,\n      },\n      {\n        category: 'fiction',\n        author: 'Evelyn Waugh',\n        title: 'Sword of Honour',\n        price: 12.99,\n      },\n      {\n        category: 'fiction',\n        author: 'Herman Melville',\n        title: 'Moby Dick',\n        isbn: '0-553-21311-3',\n        price: 8.99,\n      },\n      {\n        category: 'fiction',\n        author: 'J. R. R. Tolkien',\n        title: 'The Lord of the Rings',\n        isbn: '0-395-19395-8',\n        price: 22.99,\n      },\n    ],\n    bicycle: {\n      color: 'red',\n      price: 19.95,\n    },\n  },\n};\n"
+    },
+    "jp-get-info": {
+        "name": "jp-get-info",
+        "content": "  // Retrieve a value from current context using jsonpath\n"
+    },
+    "jp-get-in-info": {
+        "name": "jp-get-in-info",
+        "content": "  // Retrieve a value from specified target using jsonpath\n"
+    },
+    "jp-descend-info": {
+        "name": "jp-descend-info",
+        "content": "  // Use the value derived from current context using jsonpath as the context\n  // for embedded block\n"
+    },
+    "jp-descend-in-info": {
+        "name": "jp-descend-in-info",
+        "content": "  // Use the value derived from specified target using jsonpath as the context\n  // for embedded block\n"
+    }
+}
