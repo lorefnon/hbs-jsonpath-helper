@@ -1,17 +1,24 @@
 {
   "name": "hbs-jsonpath-helper",
   "description": "A simple handlebars helper that enables you to use jsonpath (to access and traverse nested data) within your templates",
+  "author": {
+    "name": "Lorefnon",
+    "email": "lorefnon@gmail.com",
+    "url": "https://lorefnon.tech"
+  },
   "keywords": [
     "handlebars",
-    "handlebars-helpers"
+    "handlebars-helpers",
+    "jsonpath"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "module": "dist/hbs-jsonpath-helper.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -19,9 +26,15 @@
     "format": "prettier --write ./src/*.ts ./test/*.ts",
     "snippets:collect": "snippet-collector --files ./test/*.ts --files ./src/*.ts --output ./generated/snippets.json",
     "docs:generate": "node ./scripts/generate-docs.js",
-    "prePublishOnly": "yarn run build && yarn run snippets:collect && yarn run docs:generate"
+    "prePublishOnly": "yarn run build && yarn run test && yarn run snippets:collect && yarn run docs:generate"
   },
-  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lorefnon/hbs-jsonpath-helper"
+  },
+  "peerDependencies": {
+    "handlebars": "^4.1.2"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"

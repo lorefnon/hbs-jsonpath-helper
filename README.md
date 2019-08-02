@@ -8,7 +8,34 @@ A simple handlebars helper that enables you to use jsonpath (to access and trave
 - Online [jsonpath evaluator](https://jsonpath.com/)
 - [jsonpath-plus](https://www.npmjs.com/package/jsonpath-plus) npm package (which the helpers defined here delegate to)
 
-## Features
+
+## Installation & Usage
+
+```
+npm install --save handlebars hbs-jsonpath-helper
+```
+
+```js
+const Handlebars = require('handlebars');
+const jsonPathHelper = require('hbs-jsonpath-helper');
+
+jsonPathHelper.register();
+// Or, you can explicitly pass a Handlebars instance
+jsonPathHelper.register(Handlebars);
+
+// Compile template
+const template = Handlebars.compile(`
+{{jp-get "$.store.book[0].title"}}
+`);
+
+// Data passed to the template
+const data = { /* ... */ }
+
+// Use compiled template:
+const str = template(data); // "Nigel Rees"
+```
+
+## API & Examples
 
 For the following data source
 
